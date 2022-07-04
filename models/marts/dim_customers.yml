@@ -1,0 +1,190 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: This is the adventure works postgres database replica
+    tables:
+      - name: sales_salesorderheader
+        description: One record per order 
+        columns:
+          - name: salesorderid
+            description: Primary key of the orders table
+            tests:
+              - unique
+              - not_null
+          - name: orderdate
+            description: When it was bought
+
+          - name: status
+            description: Order status
+
+          - name: territoryid
+            description: Cep id
+
+          - name: creditcardid
+            description: Credit card from person
+
+      - name: sales_salesorderdetail
+        description: One record per order
+        columns:
+          - name: salesorderid
+            description: Primary key of the orders table
+            tests:
+              - unique
+              - not_null
+
+          - name: salesorderdetailid
+            description: Key of sales order detail
+
+          - name: orderqty
+            description: How many products it was bought
+
+          - name: productid
+            description: Product id
+
+          - name: specialofferid
+            description: Key of special offer
+
+          - name: unitprice
+            description: Unit value
+
+          - name: unitpricediscount
+            description: Price discount
+
+      - name: sales_specialoffer   
+        description: Information about sales offer
+        columns:
+          - name: specialofferid
+            description: Primary key of the sales special offer table
+            tests:
+              - unique
+              - not_null
+
+          - name: description
+            description: Product description
+
+          - name: discountpct
+            description: discount
+
+          - name: type
+            description: Discount subject
+
+          - name: category
+            description: discount category
+
+      - name: sales_specialofferproduct
+        description: Information about sales offer
+        columns:
+          - name: specialofferid
+            description: Primary key of the sales special offer table
+            tests:
+              - unique
+              - not_null
+
+          - name: productid
+            description: Type of product
+
+      - name: stg_sales_credit_card
+        description: Information about credit card in sales
+        columns:
+          - name: creditcardid
+            description: Primary key of the sales credit card table
+            tests:
+              - unique
+              - not_null
+
+          - name: cardtype
+            description: Card type
+
+          - name: cardnumber
+            description: Card number
+
+      - name: sales_salesreason
+        description: Sales reasons 
+        columns:
+          - name: salesreasonid
+            description: Primary key of the sales reason table
+            tests:
+              - unique
+              - not_null
+
+          - name: name
+            description: Subject
+
+          - name: reasontype
+            description: reason type
+
+      - name: stg_sales_customer
+        description: Sales costumer 
+        columns:
+          - name: customer_id
+            description: Primary key of the customer table
+            tests:
+              - unique
+              - not_null
+
+          - name: personid
+            description: person id
+
+          - name: storeid
+            description: store id
+
+          - name: territoryid
+            description: territory id
+
+      - name: stg_sales_territory
+        description: One record per order
+        columns:
+          - name: territoryid
+            description: Primary key of the sales territory table
+            tests:
+              - unique
+              - not_null
+
+          - name: name
+            description: country name
+
+          - name: countryregioncode
+            description: country UF
+
+          - name: group
+            description: country region
+
+          - name: specialofferid
+            description: Key of special offer
+
+      - name: production_product
+        description: One record per order
+        columns:
+          - name: productid
+            description: Primary key of the product table
+            tests:
+              - unique
+              - not_null
+
+          - name: name
+            description: Product name
+
+      - name: stg_person_person
+        description: One record per order
+        columns:
+          - name: person_id
+            description: Primary key of the person table
+            tests:
+              - unique
+              - not_null
+
+          - name: firstname
+            description: Customer firstname
+
+          - name: lastname
+            description: Customer lastname
+
+      - name: stg_sales_person_credit_card
+        description: One record per order
+        columns:
+          - name: person_id
+            description: Primary key of the person table
+            tests:
+              - unique
+              - not_null

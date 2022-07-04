@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: This is the adventure works postgres database replica
+    tables:
+      - name: stg_sales_order_header
+        description: One record per order 
+        columns:
+          - name: person_id
+            description: Primary key of the orders table
+
+          - name: sales_order_id
+            description: Primary key of the orders table
+
+          - name: order_date
+            description: When it was bought
+
+          - name: sales_status
+            description: Order status
+
+      - name: stg_sales_order_detail
+        description: One record per order 
+        columns:
+          - name: sales_order_id
+            description: Primary key of the orders table
+
+          - name: product_id
+            description: Primary key of the orders table
+
+          - name: order_qty
+            description: When it was bought
+
+          - name: unit_price
+            description: Order status
+
+          - name: special_offer_id
+            description: When it was bought
+
+          - name: unit_price_discount
+            description: Order status
+
+      - name: stg_special_offer
+        description: One record per order 
+        columns:
+          - name: special_offer_id
+            description: Primary key of the orders table
+
+          - name: special_offer_description
+            description: Primary key of the orders table
+
+          - name: special_offer_type
+            description: When it was bought
+
+          - name: category
+            description: Order status
+
+          - name: min_qty
+            description: When it was bought
+
+          - name: max_qty
+            description: Order status

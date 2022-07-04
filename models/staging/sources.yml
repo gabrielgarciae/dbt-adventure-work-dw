@@ -1,0 +1,158 @@
+version: 2
+
+sources:
+  - name: adventure_works_el
+    description: This is the adventure works postgres database replica
+    tables:
+      - name: sales_salesorderheader
+        description: One record per order 
+        columns:
+          - name: salesorderid
+            description: primary key of the orders table
+
+          - name: orderdate
+            description: when it was bought
+
+          - name: status
+            description: order status
+
+      - name: sales_salesorderdetail
+        description: One record per order
+        columns:
+          - name: salesorderid
+            description: primary key of the orders table
+
+          - name: productid
+            description: product id
+
+          - name: orderqty
+            description: how many products it was bought
+
+          - name: unitprice
+            description: unit value
+
+          - name: specialofferid
+            description: key of special offer
+
+          - name: unitpricediscount
+            description: price discount
+
+      - name: sales_specialoffer
+        description: Information about sales offer
+        columns:
+          - name: specialofferid
+            description: primary key of the sales special offer table
+
+          - name: description
+            description: product description
+
+          - name: type
+            description: discount subject
+
+          - name: category
+            description: discount category
+
+          - name: minqty
+            description: min product quantity to get discount
+
+          - name: maxqty
+            description: max product quantity to get discount      
+
+      - name: sales_creditcard
+        description: Information about credit card in sales
+        columns:
+          - name: creditcardid
+            description: primary key of the sales credit card table
+
+          - name: cardtype
+            description: card type
+
+          - name: cardnumber
+            description: card number
+
+      - name: sales_personcreditcard
+        description: Information about credit card in sales
+        columns:
+          - name: businessentityid
+            description: primary key of the sales credit card table
+
+          - name: creditcardid
+            description: card id
+
+      - name: sales_salesorderheadersalesreason
+        description: Sales reasons 
+        columns:
+          - name: salesorderid
+            description: primary key of the sales reason table
+
+          - name: salesreasonid
+            description: sales reason
+
+      - name: sales_salesreason
+        description: Sales reasons 
+        columns:
+          - name: salesreasonid
+            description: primary key of the sales reason table
+
+          - name: reason_name
+            description: subject
+
+          - name: reason_type
+            description: reason type
+
+      - name: sales_customer
+        description: Sales costumer 
+        columns:
+          - name: customerid
+            description: Primary key of the customer table
+
+          - name: personid
+            description: person id
+
+          - name: storeid
+            description: store id
+
+          - name: territoryid
+            description: territory id
+
+      - name: sales_salesterritory
+        description: One record per order
+        columns:
+          - name: territoryid
+            description: Primary key of the sales territory table
+
+          - name: name
+            description: country name
+
+          - name: countryregioncode
+            description: country UF
+
+          - name: group
+            description: country region
+
+      - name: production_product
+        description: One record per order
+        columns:
+          - name: productid
+            description: primary key of the product table
+
+          - name: name
+            description: product name
+
+          - name: number
+            description: product number
+
+          - name: color
+            description: product color
+
+      - name: person_person
+        description: One record per order
+        columns:
+          - name: personid
+            description: primary key of the person table
+
+          - name: firstname
+            description: customer firstname
+
+          - name: lastname
+            description: customer lastname

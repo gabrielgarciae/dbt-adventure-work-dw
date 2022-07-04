@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_sales_reason
+    description: This is the adventure works postgres database replica
+    tables:
+      - name: stg_sales_reason
+        description: Sales reasons 
+        columns:
+          - name: sales_reason_id
+            description: primary key of the sales reason table
+
+          - name: reason_name
+            description: subject
+
+          - name: reason_type
+            description: reason type
+
+      - name: stg_sales_order_header_sales_reason
+        description: Sales reasons 
+        columns:
+          - name: salesorder_id
+            description: primary key of the sales reason table
+
+          - name: sales_reason_id
+            description: sales reason
+

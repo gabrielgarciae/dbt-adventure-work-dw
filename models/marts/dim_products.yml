@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: This is the adventure works postgres database replica
+    tables:
+      - name: production_product
+        description: One record per order
+        columns:
+          - name: product_id
+            description: primary key of the product table
+
+          - name: product_name
+            description: product name
+
+          - name: product_number
+            description: product number
+
+          - name: color
+            description: product color
