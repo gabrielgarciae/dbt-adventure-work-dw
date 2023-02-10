@@ -1,2 +1,2 @@
-# dw_adventure_works
+# dw_adventure_works_dbt
 final project
